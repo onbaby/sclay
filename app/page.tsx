@@ -66,7 +66,7 @@ export default function Home() {
   }, [isMobileMenuOpen])
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col font-[Blinker,sans-serif]">
       {/* Navigation */}
       <header className={`sticky top-0 z-50 w-full border-b border-gray-800 bg-black/95 backdrop-blur transition-transform duration-500 ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
         <div className="container flex h-16 items-center justify-between">
@@ -196,9 +196,9 @@ export default function Home() {
         <div className="absolute inset-0 animate-hero-gradient bg-gradient-to-br from-black via-black to-green-950 opacity-90"></div>
         <div className="container relative z-10 mx-auto px-4 text-center">
           <FadeIn delay={200} duration={1000}>
-            <h1 className="mb-6 text-4xl md:text-6xl font-bold tracking-tight text-white">
-              Scale Your Service Business <br className="hidden md:block" />
-              <span className="text-green-500">with SCLAY</span>
+            <h1 className="mb-6 text-5xl md:text-6xl font-bold tracking-tight text-white">
+              Scale Your Service Business<br />
+              <span className="text-green-500 whitespace-nowrap">with SCLAY</span>
             </h1>
           </FadeIn>
           <FadeIn delay={600} duration={1000}>
@@ -230,7 +230,7 @@ export default function Home() {
           <FadeIn className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What We Do</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Comprehensive solutions to help local service businesses scale and thrive
+              Solutions simply to help local service businesses scale and thrive
             </p>
           </FadeIn>
 

@@ -318,6 +318,43 @@ export default function DemoPage() {
         </div>
       </section>
 
+      {/* Before/After Section */}
+      <section className="bg-black py-20">
+        <div className="container mx-auto px-4">
+          <FadeIn className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-medium text-white mb-4">See The Difference</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">Real results from our optimization and scaling process</p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* Before Card */}
+            <div className="bg-gray-900 p-6 rounded-lg flex flex-col h-full items-center shadow-lg">
+              <div className="bg-red-500/20 text-red-500 px-3 py-1 rounded text-sm font-medium mb-4">BEFORE</div>
+              <Image
+                src="/b4.png"
+                alt="Before optimization"
+                width={500}
+                height={300}
+                className="w-full h-auto rounded-md mb-4 object-cover"
+              />
+              <p className="text-gray-300 text-center flex-1">This is what your system looked like before our optimization process.</p>
+            </div>
+            {/* After Card */}
+            <div className="bg-gray-900 p-6 rounded-lg flex flex-col h-full items-center shadow-lg shadow-[0_0_24px_4px_rgba(34,197,94,0.5)] border border-green-500">
+              <div className="bg-green-500/20 text-green-500 px-3 py-1 rounded text-sm font-medium mb-4">AFTER</div>
+              <Image
+                src="/after.png"
+                alt="After optimization"
+                width={500}
+                height={300}
+                className="w-full h-auto rounded-md mb-4 object-cover"
+              />
+              <p className="text-gray-300 text-center flex-1">This is the improved result after our optimization and scaling process.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* What's Included Section */}
       <section className="bg-black py-20">
         <div className="container mx-auto px-4">
@@ -528,7 +565,7 @@ export default function DemoPage() {
                 If you love your demo website, here's what the 3-month partnership includes. Remember, you only pay if you decide to move forward.
               </p>
               <div className="bg-gray-900 p-8 rounded-lg border border-green-500 max-w-md mx-auto">
-                <h3 className="text-4xl font-bold text-white mb-2">$497<span className="text-xl text-gray-400 ml-2">/one time payment</span></h3>
+                <h3 className="text-4xl font-bold text-white mb-2">$497<span className="text-xl text-gray-400 ml-2">/Once In Your Life</span></h3>
                 <p className="text-gray-500 text-s mb-4 mt-0">*Three month partnership</p>
                 <ul className="space-y-4 text-left">
                   <li className="flex items-start">
