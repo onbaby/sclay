@@ -6,6 +6,7 @@ import { CheckCircle, ArrowRight } from "lucide-react"
 import { FadeIn } from "@/components/animations/fade-in"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
+import { trackFacebookLead } from "@/lib/facebook-events"
 
 export default function DemoPage() {
   const [formData, setFormData] = useState({
@@ -58,10 +59,14 @@ export default function DemoPage() {
     }
   }, [isMobileMenuOpen])
 
+  const handleBookCall = () => {
+    trackFacebookLead();
+    window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true", "_blank");
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically handle the form submission
-    // For now, we'll just redirect to the calendar
+    trackFacebookLead();
     window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true", "_blank")
   }
 
@@ -100,11 +105,9 @@ export default function DemoPage() {
             <Button
               variant="outline"
               className="hidden md:flex border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300"
-              asChild
+              onClick={handleBookCall}
             >
-              <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true" target="_blank" rel="noopener noreferrer">
-                Book A Call
-              </Link>
+              Book A Call
             </Button>
             
             {/* Mobile Menu Button - Moved to right side */}
@@ -179,12 +182,12 @@ export default function DemoPage() {
             <Button
               variant="outline"
               className="w-full border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 mt-2"
-              asChild
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                handleBookCall();
+              }}
             >
-              <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true" target="_blank" rel="noopener noreferrer">
-                Book A Call
-              </Link>
+              Book A Call
             </Button>
           </nav>
         </div>
