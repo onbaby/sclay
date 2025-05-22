@@ -626,6 +626,121 @@ export default function DemoPage() {
           </FadeIn>
         </div>
       </section>
+
+      {/* Additional CTA Section */}
+      <section className="bg-gradient-to-b from-black to-gray-900 py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <FadeIn>
+              <div className="inline-block bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                Limited Time Offer
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to See Your Custom Demo?</h2>
+              <p className="text-gray-300 mb-8">
+                Book your consultation call now and get a personalized website demo tailored specifically for your business.
+                No commitment required - see the value before you invest.
+              </p>
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+                <Button
+                  variant="outline"
+                  className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)] w-full md:w-auto"
+                  asChild
+                >
+                  <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true" target="_blank" rel="noopener noreferrer">
+                    Book a Call <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <div className="text-gray-400 text-sm mt-4 md:mt-0">
+                  <span className="flex items-center justify-center">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    No obligation or commitment
+                  </span>
+                </div>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-950 py-12 border-t border-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 justify-center items-start text-center" style={{maxWidth: '900px'}}>
+            <div className="flex flex-col items-center text-center">
+              <Image src="/sclaylogo.png" alt="SCLAY Logo" width={120} height={30} className="h-8 w-auto mb-4" />
+              <p className="text-gray-400 mb-2 text-center">
+                Helping local service businesses scale through comprehensive website optimization, system upgrades, and
+                task automation.
+              </p>
+              <p className="text-green-500 text-sm">Based in Forsyth, Ga</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <h3 className="text-white font-medium mb-4">Services</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/#services" className="text-gray-400 hover:text-green-500 transition-colors">
+                    Website Optimization
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#services" className="text-gray-400 hover:text-green-500 transition-colors">
+                    System Upgrades
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#services" className="text-gray-400 hover:text-green-500 transition-colors">
+                    Task Automation
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <h3 className="text-white font-medium mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/#advantage" className="text-gray-400 hover:text-green-500 transition-colors">
+                    Our Advantage
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#process" className="text-gray-400 hover:text-green-500 transition-colors">
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#pricing" className="text-gray-400 hover:text-green-500 transition-colors">
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#faq" className="text-gray-400 hover:text-green-500 transition-colors">
+                    FAQ
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 text-sm mb-4 md:mb-0">
+              &copy; {new Date().getFullYear()} SCLAY. All rights reserved.
+            </p>
+            <div className="flex space-x-6">
+              <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
+                Terms of Service
+              </a>
+              <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
+                Sitemap
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 } 
