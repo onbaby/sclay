@@ -209,7 +209,6 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={1000} duration={1000} direction="none">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-             
               <Button
                 variant="outline"
                 className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-8 py-8 text-lg transition-all duration-300 hover:scale-105"
@@ -253,6 +252,17 @@ export default function Home() {
                 icon={<Globe className="h-10 w-10 text-green-500" />}
                 title="Website Optimization"
                 description="Upgrade your website's design and usability in real-time. Enhance user experience, mobile access, and conversion flow to capture more leads."
+                button={
+                  <Button
+                    variant="outline"
+                    className="mt-4 border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300"
+                    asChild
+                  >
+                    <Link href="/demo">
+                      Free Website Demo
+                    </Link>
+                  </Button>
+                }
               />
             </div>
 
@@ -931,12 +941,12 @@ export default function Home() {
               &copy; {new Date().getFullYear()} SCLAY. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
+              <Link href="/privacy-policy" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
+              </Link>
+              <Link href="/terms-of-service" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
                 Terms of Service
-              </a>
+              </Link>
               <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
                 Sitemap
               </a>
@@ -949,13 +959,14 @@ export default function Home() {
 }
 
 // Component for Service Cards
-function ServiceCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
+function ServiceCard({ icon, title, description, button }: { icon: React.ReactNode; title: string; description: string; button?: React.ReactNode }) {
   return (
     <div className="bg-gray-900 border-gray-800 rounded-lg h-full transform transition-all duration-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.2)] hover:translate-y-[-5px]">
       <div className="p-6">
         <div className="mb-4">{icon}</div>
         <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
         <p className="text-gray-400">{description}</p>
+        {button}
       </div>
     </div>
   )

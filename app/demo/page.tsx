@@ -728,12 +728,12 @@ export default function DemoPage() {
               &copy; {new Date().getFullYear()} SCLAY. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
+              <Link href="/privacy-policy" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
+              </Link>
+              <Link href="/terms-of-service" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
                 Terms of Service
-              </a>
+              </Link>
               <a href="#" className="text-gray-500 hover:text-green-500 text-sm transition-colors duration-300">
                 Sitemap
               </a>
