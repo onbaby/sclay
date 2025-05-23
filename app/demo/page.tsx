@@ -117,32 +117,10 @@ export default function DemoPage() {
         {/* Navigation */}
         <header className={`sticky top-0 z-50 w-full border-b border-gray-800 bg-black/95 backdrop-blur transition-transform duration-500 ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
           <div className="container flex h-16 items-center justify-between">
-            <div className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-2 group">
               <Image src="/sclaylogo.png" alt="SCLAY Logo" width={140} height={36} className="h-9 w-auto transition-transform duration-700 ease-in-out group-hover:rotate-[360deg]" />
-            </div>
+            </Link>
             
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6">
-              <Link href="/#services" className="text-sm font-medium text-gray-200 hover:text-green-400 transition-colors">
-                Services
-              </Link>
-              <Link
-                href="/#advantage"
-                className="text-sm font-medium text-gray-200 hover:text-green-400 transition-colors"
-              >
-                Our Advantage
-              </Link>
-              <Link href="/#process" className="text-sm font-medium text-gray-200 hover:text-green-400 transition-colors">
-                How It Works
-              </Link>
-              <Link href="/#pricing" className="text-sm font-medium text-gray-200 hover:text-green-400 transition-colors">
-                Pricing
-              </Link>
-              <Link href="/#faq" className="text-sm font-medium text-gray-200 hover:text-green-400 transition-colors">
-                FAQ
-              </Link>
-            </nav>
-
             <div className="flex items-center gap-4">
               <Button
                 variant="outline"
@@ -186,41 +164,6 @@ export default function DemoPage() {
             } overflow-hidden`}
           >
             <nav className="container mx-auto px-4 py-4 flex flex-col items-center space-y-4">
-              <Link
-                href="/#services"
-                className="text-base font-medium text-gray-200 hover:text-green-400 transition-colors w-full text-center py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link
-                href="/#advantage"
-                className="text-base font-medium text-gray-200 hover:text-green-400 transition-colors w-full text-center py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Our Advantage
-              </Link>
-              <Link
-                href="/#process"
-                className="text-base font-medium text-gray-200 hover:text-green-400 transition-colors w-full text-center py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                How It Works
-              </Link>
-              <Link
-                href="/#pricing"
-                className="text-base font-medium text-gray-200 hover:text-green-400 transition-colors w-full text-center py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/#faq"
-                className="text-base font-medium text-gray-200 hover:text-green-400 transition-colors w-full text-center py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                FAQ
-              </Link>
               <Button
                 variant="outline"
                 className="w-full border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 mt-2"
@@ -593,75 +536,6 @@ export default function DemoPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Guarantee Section */}
-        <section className="bg-black py-20">
-          <div className="container mx-auto px-4 text-center">
-            <FadeIn>
-              <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Your Investment If You Proceed</h2>
-                <p className="text-gray-400 mb-8">
-                  If you love your demo website, here's what the 3-month partnership includes. Remember, you only pay if you decide to move forward.
-                </p>
-                <div className="bg-gray-900 p-8 rounded-lg border border-green-500 max-w-md mx-auto">
-                  <h3 className="text-4xl font-bold text-white mb-2">$497<span className="text-xl text-gray-400 ml-2">/Once In Your Life</span></h3>
-                  <p className="text-gray-500 text-s mb-4 mt-0">*Three month partnership</p>
-                  <ul className="space-y-4 text-left">
-                    <li className="flex items-start">
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.5, y: 40 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ type: 'spring', bounce: 0.7, duration: 0.8 }}
-                        className="w-8 flex justify-center mr-3 flex-shrink-0 mt-1"
-                      >
-                        <CheckCircle className="h-6 w-6 text-green-500" />
-                      </motion.span>
-                      <span className="text-gray-300">Bi-weekly website & SEO updates</span>
-                    </li>
-                    <li className="flex items-start">
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.5, y: 40 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ type: 'spring', bounce: 0.7, duration: 0.8 }}
-                        className="w-8 flex justify-center mr-3 flex-shrink-0 mt-1"
-                      >
-                        <CheckCircle className="h-6 w-6 text-green-500" />
-                      </motion.span>
-                      <span className="text-gray-300">Google My Business optimization</span>
-                    </li>
-                    <li className="flex items-start">
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.5, y: 40 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ type: 'spring', bounce: 0.7, duration: 0.8 }}
-                        className="w-8 flex justify-center mr-3 flex-shrink-0 mt-1"
-                      >
-                        <CheckCircle className="h-6 w-6 text-green-500" />
-                      </motion.span>
-                      <span className="text-gray-300">Maps & click-to-call setup</span>
-                    </li>
-                    <li className="flex items-start">
-                      <motion.span
-                        initial={{ opacity: 0, scale: 0.5, y: 40 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ type: 'spring', bounce: 0.7, duration: 0.8 }}
-                        className="w-8 flex justify-center mr-3 flex-shrink-0 mt-1"
-                      >
-                        <CheckCircle className="h-6 w-6 text-green-500" />
-                      </motion.span>
-                      <span className="text-green-300 font-semibold">No obligation to proceed if you're not 100% satisfied with the demo</span>
-                    </li>
-                  </ul>
-                  <div className="mt-6 pt-6 border-t border-gray-700">
-                    <p className="text-gray-300 text-center">
-                      You only pay if you decide to move forward with our partnership after seeing your custom demo
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
           </div>
         </section>
 
