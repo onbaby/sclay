@@ -294,7 +294,7 @@ export default function DemoPage() {
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3">Submit Your Information</h3>
                     <p className="text-gray-400">
-                      Fill out the form below with your business details and schedule a consultation call. 
+                      You'll fill out the form provided with your business details and schedule a consultation call. 
                       We'll use this information to build your custom demo website.
                     </p>
                   </div>
@@ -335,7 +335,7 @@ export default function DemoPage() {
                   <div className="inline-block bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
                     Ready to get started?
                   </div>
-                  <p className="text-xl text-white mb-3">Then what are you waiting for?</p>
+                  <p className="text-xl text-white mb-3">What Do You Have To Lose?</p>
                   <svg 
                     className="w-8 h-8 text-green-500 mx-auto mb-2 animate-bounce" 
                     fill="none" 
@@ -350,7 +350,7 @@ export default function DemoPage() {
                       className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-10 py-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)]"
                       onClick={handleBookCall}
                     >
-                      Book a Call
+                      Fill Form
                     </Button>
                   </div>
                 </div>
@@ -684,7 +684,7 @@ export default function DemoPage() {
                     className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)] w-full md:w-auto"
                     onClick={handleBookCall}
                   >
-                    Book a Call <ArrowRight className="ml-2 h-5 w-5" />
+                    Lets Do It! <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                   <div className="text-gray-400 text-sm mt-4 md:mt-0">
                     <span className="flex items-center justify-center">
