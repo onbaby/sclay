@@ -113,6 +113,15 @@ export default function DemoPage() {
           gtag('config', 'AW-17106698477');
         `}
       </Script>
+      <Script id="cal-floating" strategy="afterInteractive">
+        {`
+          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+          Cal("init", "30min", {origin:"https://cal.com"});
+
+          Cal.ns["30min"]("floatingButton", {"calLink":"sadiq-rasheed-bqedad/30min","config":{"layout":"month_view"},"buttonColor":"#ffffff","buttonTextColor":"#000000","buttonText":"Create Website"}); 
+          Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+        `}
+      </Script>
       <main className="flex min-h-screen flex-col bg-black font-[Blinker,sans-serif]">
         {/* Navigation */}
         <header className={`sticky top-0 z-50 w-full border-b border-gray-800 bg-black/95 backdrop-blur transition-transform duration-500 ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
@@ -125,7 +134,7 @@ export default function DemoPage() {
               <Button
                 variant="outline"
                 className="hidden md:flex border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300"
-                onClick={handleBookCall}
+                onClick={() => document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Book A Call
               </Button>
@@ -169,7 +178,7 @@ export default function DemoPage() {
                 className="w-full border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 mt-2"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  handleBookCall();
+                  document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
                 Book A Call
@@ -208,7 +217,7 @@ export default function DemoPage() {
               <Button
                 variant="outline"
                 className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-10 py-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)]"
-                onClick={handleBookCall}
+                onClick={() => document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Book a Call
               </Button>
@@ -291,7 +300,7 @@ export default function DemoPage() {
                     <Button
                       variant="outline"
                       className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-10 py-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)]"
-                      onClick={handleBookCall}
+                      onClick={() => document.getElementById('calendar-section')?.scrollIntoView({ behavior: 'smooth' })}
                     >
                       Fill Form
                     </Button>
@@ -542,30 +551,33 @@ export default function DemoPage() {
         {/* Additional CTA Section */}
         <section className="bg-gradient-to-b from-black to-gray-900 py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-6xl mx-auto text-center">
               <FadeIn>
                 <div className="inline-block bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
-                  Limited Time Offer
+                  Book Your Consultation
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to See Your Custom Demo?</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Schedule Your Free Demo Call</h2>
                 <p className="text-gray-300 mb-8">
-                  Book your consultation call now and get a personalized website demo tailored specifically for your business.
-                  No commitment required - see the value before you invest.
+                  Choose a time that works best for you. We'll discuss your business needs and create a custom website demo.
                 </p>
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-                  <Button
-                    variant="outline"
-                    className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)] w-full md:w-auto"
-                    onClick={handleBookCall}
-                  >
-                    Lets Do It! <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                  <div className="text-gray-400 text-sm mt-4 md:mt-0">
-                    <span className="flex items-center justify-center">
-                      <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      No obligation or commitment
-                    </span>
-                  </div>
+
+                {/* Calendar Section */}
+                <div id="calendar-section" className="w-full mt-8">
+                  <div style={{width:"100%", height:"100%", overflow:"scroll"}} id="my-cal-inline"></div>
+                  <Script id="cal-embed" strategy="afterInteractive">
+                    {`
+                      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                      Cal("init", "30min", {origin:"https://cal.com"});
+
+                      Cal.ns["30min"]("inline", {
+                        elementOrSelector:"#my-cal-inline",
+                        config: {"layout":"month_view"},
+                        calLink: "sadiq-rasheed-bqedad/30min",
+                      });
+
+                      Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+                    `}
+                  </Script>
                 </div>
               </FadeIn>
             </div>
