@@ -68,13 +68,21 @@ export default function DemoPage() {
 
   const handleBookCall = () => {
     trackFacebookLead();
-    window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true", "_blank");
+    if (window.gtag_report_conversion) {
+      window.gtag_report_conversion("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true");
+    } else {
+      window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true", "_blank");
+    }
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     trackFacebookLead();
-    window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true", "_blank")
+    if (window.gtag_report_conversion) {
+      window.gtag_report_conversion("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true");
+    } else {
+      window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true", "_blank");
+    }
   }
 
   return (
@@ -84,7 +92,7 @@ export default function DemoPage() {
           function gtag_report_conversion(url) {
             var callback = function () {
               if (typeof(url) != 'undefined') {
-                window.open(url, '_blank');
+                window.location.href = url;
               }
             };
             gtag('event', 'conversion', {
@@ -95,6 +103,14 @@ export default function DemoPage() {
             });
             return false;
           }
+        `}
+      </Script>
+      <Script id="google-form" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17106698477');
         `}
       </Script>
       <main className="flex min-h-screen flex-col bg-black font-[Blinker,sans-serif]">
@@ -131,7 +147,7 @@ export default function DemoPage() {
               <Button
                 variant="outline"
                 className="hidden md:flex border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300"
-                onClick={() => window.gtag_report_conversion && window.gtag_report_conversion("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true")}
+                onClick={handleBookCall}
               >
                 Book A Call
               </Button>
@@ -210,7 +226,7 @@ export default function DemoPage() {
                 className="w-full border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300 mt-2"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  window.gtag_report_conversion && window.gtag_report_conversion("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true");
+                  handleBookCall();
                 }}
               >
                 Book A Call
@@ -249,7 +265,7 @@ export default function DemoPage() {
               <Button
                 variant="outline"
                 className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-10 py-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)]"
-                onClick={() => window.gtag_report_conversion && window.gtag_report_conversion("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true")}
+                onClick={handleBookCall}
               >
                 Book a Call
               </Button>
@@ -332,7 +348,7 @@ export default function DemoPage() {
                     <Button
                       variant="outline"
                       className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-10 py-8 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)]"
-                      onClick={() => window.gtag_report_conversion && window.gtag_report_conversion("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true")}
+                      onClick={handleBookCall}
                     >
                       Book a Call
                     </Button>
@@ -666,7 +682,7 @@ export default function DemoPage() {
                   <Button
                     variant="outline"
                     className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(34,197,94,0.5)] w-full md:w-auto"
-                    onClick={() => window.gtag_report_conversion && window.gtag_report_conversion("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true")}
+                    onClick={handleBookCall}
                   >
                     Book a Call <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
