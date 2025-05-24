@@ -8,15 +8,34 @@ import { useEffect } from "react"
 
 declare global {
   interface Window {
-    gtag_report_conversion?: (url: string) => void;
+    gtag: (command: string, action: string, params: any) => void;
+    dataLayer: any[];
   }
 }
 
 export default function SuccessPage() {
   useEffect(() => {
-    if (window.gtag_report_conversion) {
-      window.gtag_report_conversion(window.location.href);
-    }
+    // Wait for gtag to be available
+    const checkGtag = setInterval(() => {
+      if (typeof window !== 'undefined' && window.gtag) {
+        clearInterval(checkGtag);
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-17106698477/cWR5CKq5gcwaEO2Bjt0_',
+          'value': 1.0,
+          'currency': 'USD',
+          'transaction_id': Date.now().toString()
+        });
+      }
+    }, 100);
+
+    // Cleanup interval after 5 seconds if gtag never loads
+    setTimeout(() => {
+      clearInterval(checkGtag);
+    }, 5000);
+
+    return () => {
+      clearInterval(checkGtag);
+    };
   }, []);
 
   return (
@@ -24,18 +43,11 @@ export default function SuccessPage() {
       <Script id="gtag-conversion" strategy="afterInteractive">
         {`
           function gtag_report_conversion(url) {
-            var callback = function () {
-              if (typeof(url) != 'undefined') {
-                window.location.href = url;
-              }
-            };
             gtag('event', 'conversion', {
                 'send_to': 'AW-17106698477/cWR5CKq5gcwaEO2Bjt0_',
                 'value': 1.0,
-                'currency': 'USD',
-                'event_callback': callback
+                'currency': 'USD'
             });
-            return false;
           }
         `}
       </Script>
