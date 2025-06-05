@@ -195,6 +195,7 @@ export default function DemoPage() {
               loop
               muted
               playsInline
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src="/vecteezy_vertical-neon-green-gradient-wave-looping-background_2018600-optimized.mp4" type="video/mp4" />
