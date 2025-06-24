@@ -697,7 +697,7 @@ export default function Home() {
       </section>
 
       {/* Why Sclay Section */}
-      <section className="bg-black relative overflow-hidden py-20" ref={whySclayRef}>
+      <section id="why-sclay" className="bg-black relative overflow-hidden py-20" ref={whySclayRef}>
         <div className="container mx-auto px-4">
           <motion.div
             variants={whySclayContainerVariants}
@@ -774,7 +774,7 @@ export default function Home() {
       </section>
 
       {/* Chart Section */}
-      <section className="bg-black pt-5 pb-20" ref={chartSectionRef}>
+      <section id="numbers" className="bg-black pt-5 pb-20" ref={chartSectionRef}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-2">
             <TextGenerateEffect

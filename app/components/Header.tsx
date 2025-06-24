@@ -9,6 +9,14 @@ import Image from "next/image"
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    setIsMenuOpen(false)
+  }
+
   return (
     <header className="fixed top-0 z-50 w-full backdrop-blur-md bg-black/80 border-b border-gray-800/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,20 +30,26 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#services" className="text-gray-300 hover:text-green-500 font-medium transition-colors">
-              Services
-            </Link>
-            <Link href="#advantage" className="text-gray-300 hover:text-green-500 font-medium transition-colors">
-              Advantage
-            </Link>
-            <Link href="#process" className="text-gray-300 hover:text-green-500 font-medium transition-colors">
-              Process
-            </Link>
-            <Link href="#pricing" className="text-gray-300 hover:text-green-500 font-medium transition-colors">
-              Pricing
-            </Link>
-            <Link href="#faq" className="text-gray-300 hover:text-green-500 font-medium transition-colors">
-              FAQ
+            <button 
+              onClick={() => scrollToSection('services')}
+              className="text-gray-300 hover:text-green-500 font-medium transition-colors"
+            >
+              What We Do
+            </button>
+            <button 
+              onClick={() => scrollToSection('why-sclay')}
+              className="text-gray-300 hover:text-green-500 font-medium transition-colors"
+            >
+              Why Sclay
+            </button>
+            <button 
+              onClick={() => scrollToSection('numbers')}
+              className="text-gray-300 hover:text-green-500 font-medium transition-colors"
+            >
+              Results
+            </button>
+            <Link href="/demo" className="text-gray-300 hover:text-green-500 font-medium transition-colors">
+              Demo
             </Link>
           </nav>
 
@@ -64,40 +78,30 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-md rounded-lg mt-2 border border-gray-800/20">
+              <button
+                onClick={() => scrollToSection('services')}
+                className="block w-full text-left px-3 py-2 text-gray-300 hover:text-green-500 font-medium transition-colors"
+              >
+                What We Do
+              </button>
+              <button
+                onClick={() => scrollToSection('why-sclay')}
+                className="block w-full text-left px-3 py-2 text-gray-300 hover:text-green-500 font-medium transition-colors"
+              >
+                Why Sclay
+              </button>
+              <button
+                onClick={() => scrollToSection('numbers')}
+                className="block w-full text-left px-3 py-2 text-gray-300 hover:text-green-500 font-medium transition-colors"
+              >
+                Results
+              </button>
               <Link
-                href="#services"
+                href="/demo"
                 className="block px-3 py-2 text-gray-300 hover:text-green-500 font-medium transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Services
-              </Link>
-              <Link
-                href="#advantage"
-                className="block px-3 py-2 text-gray-300 hover:text-green-500 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Advantage
-              </Link>
-              <Link
-                href="#process"
-                className="block px-3 py-2 text-gray-300 hover:text-green-500 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Process
-              </Link>
-              <Link
-                href="#pricing"
-                className="block px-3 py-2 text-gray-300 hover:text-green-500 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Pricing
-              </Link>
-              <Link
-                href="#faq"
-                className="block px-3 py-2 text-gray-300 hover:text-green-500 font-medium transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                FAQ
+                Demo
               </Link>
               <div className="flex flex-col space-y-2 px-3 pt-2">
                 <Button 
