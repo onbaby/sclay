@@ -28,33 +28,35 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-gray-300 hover:text-green-500 font-medium transition-colors"
-            >
-              What We Do
-            </button>
-            <button 
-              onClick={() => scrollToSection('why-sclay')}
-              className="text-gray-300 hover:text-green-500 font-medium transition-colors"
-            >
-              Why Sclay
-            </button>
-            <button 
-              onClick={() => scrollToSection('numbers')}
-              className="text-gray-300 hover:text-green-500 font-medium transition-colors"
-            >
-              Results
-            </button>
-            <Link href="/demo" className="text-gray-300 hover:text-green-500 font-medium transition-colors">
-              Demo
-            </Link>
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex items-center justify-center flex-1">
+            <div className="flex items-center space-x-8">
+              <button 
+                onClick={() => scrollToSection('services')}
+                className="text-gray-300 hover:text-green-500 font-medium transition-colors"
+              >
+                What We Do
+              </button>
+              <button 
+                onClick={() => scrollToSection('why-sclay')}
+                className="text-gray-300 hover:text-green-500 font-medium transition-colors"
+              >
+                Why Sclay
+              </button>
+              <button 
+                onClick={() => scrollToSection('numbers')}
+                className="text-gray-300 hover:text-green-500 font-medium transition-colors"
+              >
+                Results
+              </button>
+              <Link href="/demo" className="text-gray-300 hover:text-green-500 font-medium transition-colors">
+                Demo
+              </Link>
+            </div>
           </nav>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 flex-shrink-0">
             <Button 
               variant="outline" 
               className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black transition-all duration-300"
