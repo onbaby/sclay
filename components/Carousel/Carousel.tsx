@@ -1,15 +1,15 @@
-"use client";
-
 import { useEffect, useState, useRef } from "react";
 import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
 import React, { JSX } from "react";
 
+// replace icons with your own if needed
 import {
-  Search,
-  Settings,
-  LineChart,
-} from "lucide-react";
-
+  FiCircle,
+  FiCode,
+  FiFileText,
+  FiLayers,
+  FiLayout,
+} from "react-icons/fi";
 export interface CarouselItem {
   title: string;
   description: string;
@@ -27,26 +27,38 @@ export interface CarouselProps {
   round?: boolean;
 }
 
-const PROCESS_ITEMS: CarouselItem[] = [
-    {
-      title: "Step 1. Analyze",
-      description: "We analyze your current business processes and identify areas for improvement.",
-      id: 1,
-      icon: <Search className="h-[16px] w-[16px] text-white" />,
-    },
-    {
-      title: "Step 2. Optimize",
-      description: "We develop a customized scaling strategy tailored to your business needs.",
-      id: 2,
-      icon: <Settings className="h-[16px] w-[16px] text-white" />,
-    },
-    {
-      title: "Step 3. Scale",
-      description: "We execute the strategy with precision and monitor progress continuously.",
-      id: 3,
-      icon: <LineChart className="h-[16px] w-[16px] text-white" />,
-    },
-  ];
+const DEFAULT_ITEMS: CarouselItem[] = [
+  {
+    title: "Text Animations",
+    description: "Cool text animations for your projects.",
+    id: 1,
+    icon: <FiFileText className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    title: "Animations",
+    description: "Smooth animations for your projects.",
+    id: 2,
+    icon: <FiCircle className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    title: "Components",
+    description: "Reusable components for your projects.",
+    id: 3,
+    icon: <FiLayers className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    title: "Backgrounds",
+    description: "Beautiful backgrounds and patterns for your projects.",
+    id: 4,
+    icon: <FiLayout className="h-[16px] w-[16px] text-white" />,
+  },
+  {
+    title: "Common UI",
+    description: "Common UI components are coming soon!",
+    id: 5,
+    icon: <FiCode className="h-[16px] w-[16px] text-white" />,
+  },
+];
 
 const DRAG_BUFFER = 0;
 const VELOCITY_THRESHOLD = 500;
@@ -54,12 +66,12 @@ const GAP = 16;
 const SPRING_OPTIONS = { type: "spring", stiffness: 300, damping: 30 };
 
 export default function Carousel({
-  items = PROCESS_ITEMS,
+  items = DEFAULT_ITEMS,
   baseWidth = 300,
   autoplay = false,
   autoplayDelay = 3000,
   pauseOnHover = false,
-  loop = false,
+  loop = true,
   round = false,
 }: CarouselProps): JSX.Element {
   const containerPadding = 16;
@@ -200,7 +212,7 @@ export default function Carousel({
               } overflow-hidden cursor-grab active:cursor-grabbing`}
               style={{
                 width: itemWidth,
-                height: round ? itemWidth : "400px",
+                height: round ? itemWidth : "100%",
                 rotateY: rotateY,
                 ...(round && { borderRadius: "50%" }),
               }}
@@ -212,7 +224,7 @@ export default function Carousel({
                 </span>
               </div>
               <div className="p-5">
-                <div className="mb-1 font-black text-lg text-white">
+                <div className="mb-1 font-light text-lg text-white font-['Electrolize']">
                   {item.title}
                 </div>
                 <p className="text-sm text-white">{item.description}</p>
@@ -250,4 +262,4 @@ export default function Carousel({
       </div>
     </div>
   );
-} 
+}

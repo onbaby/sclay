@@ -55,7 +55,6 @@ import TiltedCard from "./components/TiltedCard"
 import StarBorder from "./components/StarBorder"
 import SpotlightCard from "./components/SpotlightCard"
 import { Divider } from "@heroui/divider";
-import Carousel from './components/Carousel'
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { CardDemo } from "@/components/ui/card-demo2";
@@ -67,6 +66,8 @@ import LettersPullUp from "@/components/animations/letters-pull-up";
 import { ChartPieLabel } from "@/components/ui/datavisualizer/chart-pie-label"
 import { GlareHover } from "@/components/animations/glare"
 import DecryptedText from '@/components/animations/cryptic-text';
+import GradientText from "./components/gradienttext"
+import Particles from "./components/Particles"
 
 
 const commonGlareProps = {
@@ -816,7 +817,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <DecryptedText
-              text="What Are You Waiting For?"
+              text="The Potential Is Endless"
               animateOn="view"
               revealDirection="center"
               className="text-4xl md:text:4xl font-bold text-white font-['Quantico'] font-[700]"
@@ -854,48 +855,160 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NEW CTA SECTION */}
+      <section className="bg-black py-20 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Particles 
+            particleCount={300}
+            particleColors={["#22c55e", "#16a34a", "#15803d"]}
+            speed={0.03}
+            particleSpread={20}
+            moveParticlesOnHover={false}
+            alphaParticles={true}
+            particleBaseSize={100}
+            sizeRandomness={0.7}
+            cameraDistance={25}
+            disableRotation={false}
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-center max-w-4xl mx-auto"
+          >
+            <div className="inline-flex items-center gap-2 bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-green-500/30">
+              <Zap className="h-4 w-4" />
+              Ready to Transform?
+            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-['Quantico']">
+              Don't Let Your{" "}
+              <span className="bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+                Competition
+              </span>{" "}
+              Get Ahead
+            </h2>
+            
+            <div className="mb-6">
+              <img 
+                src="/sclaywhitetxt.png" 
+                alt="SCLAY" 
+                className="mx-auto h-8 md:h-10 w-auto"
+              />
+            </div>
+            
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl md:mx-auto pr-4px pl-4px font-['Electrolize']">
+              Every day you wait is another day your competitors gain an edge. Our proven system helps businesses like yours grow faster and work smarter.
+            </p>
+
+            <div className="relative">
+              <div className="flex gap-6 mb-10 overflow-x-auto pb-4 px-4">
+                <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 text-center min-w-[280px] flex-shrink-0">
+                  <Clock className="h-8 w-8 text-green-500 mx-auto mb-3" />
+                  <h3 className="text-lg font-semibold text-white mb-2">Quick Setup</h3>
+                  <p className="text-sm text-gray-300">Get started in under 48 hours with our streamlined onboarding process</p>
+                </div>
+
+                <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 text-center min-w-[280px] flex-shrink-0">
+                  <TrendingUp className="h-8 w-8 text-green-500 mx-auto mb-3" />
+                  <h3 className="text-lg font-semibold text-white mb-2">Proven Results</h3>
+                  <p className="text-sm text-gray-300">Join 20+ businesses already seeing 3x growth in their operations</p>
+                </div>
+
+                <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 text-center min-w-[280px] flex-shrink-0">
+                  <Target className="h-8 w-8 text-green-500 mx-auto mb-3" />
+                  <h3 className="text-lg font-semibold text-white mb-2">Custom Solution</h3>
+                  <p className="text-sm text-gray-300">Tailored specifically for your business needs and industry requirements</p>
+                </div>
+
+                <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 text-center min-w-[280px] flex-shrink-0">
+                  <MessageCircle className="h-8 w-8 text-green-500 mx-auto mb-3" />
+                  <h3 className="text-lg font-semibold text-white mb-2">24/7 Support</h3>
+                  <p className="text-sm text-gray-300">Round-the-clock assistance to ensure your business operations run smoothly</p>
+                </div>
+
+                <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50 text-center min-w-[280px] flex-shrink-0">
+                  <Scale className="h-8 w-8 text-green-500 mx-auto mb-3" />
+                  <h3 className="text-lg font-semibold text-white mb-2">Scalable Growth</h3>
+                  <p className="text-sm text-gray-300">Solutions that grow with your business, adapting to your changing needs</p>
+                </div>
+              </div>
+              
+              {/* Desktop-only gradient overlays */}
+              <div className="hidden md:block absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
+              <div className="hidden md:block absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  size="lg"
+                  className="bg-green-500 hover:bg-green-600 text-black font-semibold px-8 py-4 text-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] border-0"
+                  asChild
+                >
+                  <Link href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3vEa9YOGgizLfitsLgDxTwSKbqnevZCOfoN71De4Ka2GV-D3E2gDwQD5UlV8hiAiitjIHWFlnO?gv=true" target="_blank" rel="noopener noreferrer">
+                    <ArrowRight className="mr-2 h-5 w-5" />
+                    Book Free Consultation
+                  </Link>
+                </Button>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-8 py-4 text-lg transition-all duration-300"
+                  asChild
+                >
+                  <Link href="/demo">
+                    <Eye className="mr-2 h-5 w-5" />
+                    Free Website Demo
+                  </Link>
+                </Button>
+              </motion.div>
+            </div>
+
+            <div className="mt-8 text-sm text-gray-400">
+              <span className="inline-flex items-center gap-1">
+                <CheckCircle className="h-4 w-4 text-green-500" />
+                No extra fees
+              </span>
+              <span className="mx-3">•</span>
+              <span className="inline-flex items-center gap-1">
+                <CheckCircle className="h-4 w-4 text-green-500" />
+                Cancel anytime
+              </span>
+              <span className="mx-3">•</span>
+              <span className="inline-flex items-center gap-1">
+                <CheckCircle className="h-4 w-4 text-green-500" />
+                30-day money back guarantee
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+
       {/* Footer */}
       <footer className="bg-gray-950 py-12 border-t border-gray-800">
         <div className="container mx-auto px-4">
-          <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 justify-center items-start text-center" style={{maxWidth: '900px'}}>
+          <div className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 justify-center items-start text-center" style={{maxWidth: '600px'}}>
             <div className="flex flex-col items-center text-center">
-              <Image src="/sclaylogo.png" alt="SCLAY Logo" width={120} height={30} className="h-8 w-auto mb-4" />
+              <img src="/sclaylogo.png" alt="SCLAY Logo" className="h-8 w-auto mb-4" />
               <p className="text-gray-400 mb-2 text-center">
                 Helping local service businesses scale through comprehensive website optimization, system upgrades, and
                 task automation.
               </p>
               <p className="text-green-500 text-sm">Based in Forsyth, Ga</p>
-            </div>
-
-            <div className="flex flex-col items-center text-center">
-              <h3 className="text-white font-medium mb-4 tracking-tight">Services</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
-                    Website Optimization
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
-                    AI Concierge
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
-                    Social Automation
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
-                    Ad Management
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-400 hover:text-green-500 transition-colors duration-300">
-                    Content Creation
-                  </a>
-                </li>
-              </ul>
             </div>
 
             <div className="flex flex-col items-center text-center">
@@ -916,7 +1029,7 @@ export default function Home() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z"
                     />
                   </svg>
                   <span className="text-gray-400">sclayadmin@sclay.net</span>
