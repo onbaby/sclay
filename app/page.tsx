@@ -567,7 +567,6 @@ export default function Home() {
               className="md:w-1/2 w-full text-3xl md:text-4xl font-bold text-gray-400 leading-tight font-[Quantico] md:mb-0 md:mt-10"
             >
               <span className="text-white">"At SCLAY, we build systems that adapt</span> to each company's unique way of working."
-              <div className="mt-5 mb-0 bg-white md:hidden max-w-3xl mx-1 h-px" />
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
@@ -584,6 +583,8 @@ export default function Home() {
               </p>
             </motion.div>
           </div>
+          {/* Mobile-only Divider - moved outside motion containers */}
+          <div className="md:hidden mt-8 bg-white max-w-3xl mx-auto h-px" />
         </div>
       </section>
 

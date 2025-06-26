@@ -10,6 +10,7 @@ import { trackFacebookLead } from "@/lib/facebook-events"
 import Script from "next/script"
 import ShinyText from '../components/ShinyText'
 import TiltedCard from '../components/TiltedCard'
+import Beams from '../components/Beams'
 
 declare global {
   interface Window {
@@ -195,20 +196,22 @@ export default function DemoPage() {
         {/* Hero Section */}
         <section className="relative bg-black py-20 md:py-32 overflow-hidden">
           <div className="absolute inset-0 w-full h-full">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/optimized-hero-video.mp4" type="video/mp4" />
-            </video>
+          <Beams
+            beamWidth={4.3}
+            beamHeight={30}
+            beamNumber={24}
+            lightColor="#49F29D"
+            speed={1}
+            noiseIntensity={1.75}
+            scale={0.2}
+            rotation={30}
+          />            
           </div>
-          <div className="absolute inset-0 animate-hero-gradient bg-gradient-to-br from-black via-black to-green-950 opacity-90"></div>
+         
           <div className="container relative z-10 mx-auto px-4 text-center">
+            
             <FadeIn delay={200} duration={1000}>
-              <h1 className="mb-6 text-4xl md:text-6xl font-bold tracking-tight text-white">
+              <h1 className="mb-6 text-4xl md:text-6xl font-bold tracking-tight text-white font-['Quantico']">
                 Custom Website Demo <br className="hidden md:block" />
                 <span className="text-green-500 whitespace-nowrap">Try Before You Invest</span>
               </h1>
@@ -234,7 +237,7 @@ export default function DemoPage() {
         <section className="bg-gray-950 py-20 relative before:content-[''] before:absolute before:bottom-0 before:left-0 before:right-0 before:h-96 before:bg-gradient-to-b before:from-transparent before:via-gray-950/90 before:to-black before:pointer-events-none">
           <div className="container mx-auto px-4">
             <FadeIn className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">How This Works</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-['Quantico']">How This Works</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
                 See the value and quality of our work before committing to a partnership
               </p>
@@ -253,7 +256,7 @@ export default function DemoPage() {
                     <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gray-900 border-2 border-green-500 flex items-center justify-center text-xl font-bold text-green-500 hidden md:flex">
                       1
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3">Submit Your Information</h3>
+                    <h3 className="text-xl font-bold text-white mb-3 font-['Quantico']">Submit Your Information</h3>
                     <p className="text-gray-400">
                       You'll fill out the form provided with your business details and schedule a consultation call. 
                       We'll use this information to build your custom demo website.
@@ -270,7 +273,7 @@ export default function DemoPage() {
                     <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gray-900 border-2 border-green-500 flex items-center justify-center text-xl font-bold text-green-500 hidden md:flex">
                       2
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3">Review Your Custom Demo</h3>
+                    <h3 className="text-xl font-bold text-white mb-3 font-['Quantico']">Review Your Custom Demo</h3>
                     <p className="text-gray-400">
                       During our consultation call, we'll present your custom-built demo website. 
                       You'll see exactly how your business would look with our professional design.
@@ -287,7 +290,7 @@ export default function DemoPage() {
                     <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gray-900 border-2 border-green-500 flex items-center justify-center text-xl font-bold text-green-500 hidden md:flex">
                       3
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3">Launch Your Website</h3>
+                    <h3 className="text-xl font-bold text-white mb-3 font-['Quantico']">Launch Your Website</h3>
                     <p className="text-gray-400">
                       If you're impressed with the demo, you can proceed with our 3-month partnership 
                       to fully launch and maintain your new website. No obligation if you decide it's not for you.
@@ -329,7 +332,7 @@ export default function DemoPage() {
         <section className="bg-black py-20 overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 font-['Quantico']">
                 <ShinyText text="See the Difference" speed={3} className="text-4xl md:text-5xl" />
               </h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -397,7 +400,7 @@ export default function DemoPage() {
         <section className="bg-black py-20">
           <div className="container mx-auto px-4">
             <FadeIn className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">What's Included in Your Demo</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-['Quantico']">What's Included in Your Demo</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
                 Everything you need to see the potential of your new website
               </p>
@@ -416,7 +419,7 @@ export default function DemoPage() {
                       <CheckCircle className="h-6 w-6 text-green-500" />
                     </motion.span>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">Custom Design</h3>
+                      <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Custom Design</h3>
                       <p className="text-gray-400">Tailored to your brand and industry</p>
                     </div>
                   </div>
@@ -433,7 +436,7 @@ export default function DemoPage() {
                       <CheckCircle className="h-6 w-6 text-green-500" />
                     </motion.span>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">Mobile Optimization</h3>
+                      <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Mobile Optimization</h3>
                       <p className="text-gray-400">Perfect display on all devices</p>
                     </div>
                   </div>
@@ -450,7 +453,7 @@ export default function DemoPage() {
                       <CheckCircle className="h-6 w-6 text-green-500" />
                     </motion.span>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">Lead Generation</h3>
+                      <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Lead Generation</h3>
                       <p className="text-gray-400">Contact forms and call-to-actions</p>
                     </div>
                   </div>
@@ -467,7 +470,7 @@ export default function DemoPage() {
                       <CheckCircle className="h-6 w-6 text-green-500" />
                     </motion.span>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">SEO Setup</h3>
+                      <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">SEO Setup</h3>
                       <p className="text-gray-400">Basic optimization for search engines</p>
                     </div>
                   </div>
@@ -484,7 +487,7 @@ export default function DemoPage() {
                       <CheckCircle className="h-6 w-6 text-green-500" />
                     </motion.span>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">Google Maps Integration</h3>
+                      <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Google Maps Integration</h3>
                       <p className="text-gray-400">Easy location finding for customers</p>
                     </div>
                   </div>
@@ -501,7 +504,7 @@ export default function DemoPage() {
                       <CheckCircle className="h-6 w-6 text-green-500" />
                     </motion.span>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-1">Click-to-Call</h3>
+                      <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Click-to-Call</h3>
                       <p className="text-gray-400">One-tap calling from mobile devices</p>
                     </div>
                   </div>
@@ -510,7 +513,7 @@ export default function DemoPage() {
               
               {/* What We Don't Do Section */}
               <div className="mt-16 bg-gray-900 p-8 rounded-lg border border-red-900/30">
-                <h3 className="text-xl font-bold text-white mb-6 text-center">What We <span className="text-red-500">Don't</span> Do:</h3>
+                <h3 className="text-xl font-bold text-white mb-6 text-center font-['Quantico']">What We <span className="text-red-500">Don't</span> Do:</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FadeIn delay={200}>
                     <div className="flex items-start">
@@ -525,7 +528,7 @@ export default function DemoPage() {
                         </svg>
                       </motion.span>
                       <div className="text-left">
-                        <h3 className="text-lg font-bold text-white mb-1">Use Generic Templates</h3>
+                        <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Use Generic Templates</h3>
                         <p className="text-gray-400">Every website is custom built from scratch for your business</p>
                       </div>
                     </div>
@@ -544,7 +547,7 @@ export default function DemoPage() {
                         </svg>
                       </motion.span>
                       <div className="md:text-right text-left">
-                        <h3 className="text-lg font-bold text-white mb-1">Outsource Development</h3>
+                        <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Outsource Development</h3>
                         <p className="text-gray-400">We build everything in-house to ensure quality</p>
                       </div>
                     </div>
@@ -563,7 +566,7 @@ export default function DemoPage() {
                         </svg>
                       </motion.span>
                       <div className="text-left">
-                        <h3 className="text-lg font-bold text-white mb-1">Monthly Retainer</h3>
+                        <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Monthly Retainer</h3>
                         <p className="text-gray-400">One transparent price for the full 3-month partnership</p>
                       </div>
                     </div>
@@ -582,7 +585,7 @@ export default function DemoPage() {
                         </svg>
                       </motion.span>
                       <div className="md:text-right text-left">
-                        <h3 className="text-lg font-bold text-white mb-1">Use Slow Page Builders</h3>
+                        <h3 className="text-lg font-bold text-white mb-1 font-['Quantico']">Use Slow Page Builders</h3>
                         <p className="text-gray-400">Custom-coded for maximum speed and performance</p>
                       </div>
                     </div>
@@ -601,7 +604,7 @@ export default function DemoPage() {
                 <div className="inline-block bg-green-500/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
                   Book Your Consultation
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Schedule Your Free Demo Call</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-['Quantico']">Schedule Your Free Demo Call</h2>
                 <p className="text-gray-300 mb-8">
                   Choose a time that works best for you. We'll discuss your business needs and create a custom website demo.
                 </p>
